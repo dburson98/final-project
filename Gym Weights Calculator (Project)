@@ -1,0 +1,93 @@
+#Gym weights calculator
+
+import math
+
+def workout_selection():
+    print("Welcome to the Gym Weights Calculator, select which exercise you want to do:")
+    workout = input("1) Bench Press \n2) Squats \n3) Deadlifts\n")     
+    while workout.lower() != "bench press" and workout != "squats" and workout != "deadlifts":
+        workout = input("1) Bench Press \n2) Squats \n3) Deadlifts\n")
+
+def weight():
+    weight_lift = int(input("How much weight are you adding onto the bar? Inputed weight must be in pounds and divisible by 5. "))
+    wl = weight_lift
+
+    while weight_lift % 5 != 0:
+        print("Sorry that is not a valid weight.")
+        weight_lift = int(input("How much weight are you adding onto the bar? Inputed weight must be in pounds and divisible by 5. "))
+        wl = weight_lift
+
+    num_45 = int(math.floor(weight_lift / 45))
+    weight_lift = weight_lift - (num_45 * 45)
+    print("45: " + str(num_45))
+
+    num_35 = math.floor(weight_lift / 35)
+    weight_lift = weight_lift - (num_35 * 35)
+    print("35: " + str(num_35))
+
+    num_25 = math.floor(weight_lift / 25)
+    weight_lift = weight_lift - (num_25 * 25)
+    print("25: " + str(num_25))
+
+    num_15 = math.floor(weight_lift / 15)
+    weight_lift = weight_lift - (num_15 * 15)
+    print("15: " + str(num_15))
+
+    num_10 = math.floor(weight_lift / 10)
+    weight_lift = weight_lift - (num_10 * 10)
+    print("10: " + str(num_10))
+
+    num_5 = math.floor(weight_lift / 5)
+    weight_lift = weight_lift - (num_5 * 5)
+    print("5: " + str(num_5))
+    
+    print()
+    print("To lift " + str(wl) + " pounds, you need to grab ", end="")
+
+    if num_45 != 0:
+        if num_45 == 1:
+            print(str(num_45) + " 45 lb plate ", end="")
+        else:
+            print(str(num_45) + " 45 lb plates ", end="")
+    
+    if num_35 != 0:
+        if num_35 == 1:
+            print(str(num_35) + " 35 lb plate ", end="")
+        else:
+            print(str(num_35) + " 35 lb plates ", end="")
+
+    if num_25 != 0:
+        if num_25 == 1:
+            print(str(num_25) + " 25 lb plate ", end="")
+        else:
+            print(str(num_25) + " 25 lb plates ", end="")
+    
+    if num_15 != 0:
+        if num_15 == 1:
+            print(str(num_15) + " 15 lb plate ", end="")
+        else:
+            print(str(num_15) + " 15 lb plates ", end="")
+
+    if num_10 != 0:
+        if num_10 == 1:
+            print(str(num_10) + " 10 lb plate ", end="")
+        else:
+            print(str(num_10) + " 10 lb plates ", end="")
+
+    if num_5 != 0:
+        if num_5 == 1:
+            print(str(num_5) + " 5 lb plate ", end="")
+        else:
+            print(str(num_5) + " 5 lb plates ", end="")
+
+    print()
+
+workout_selection()
+weight()
+
+continue_workout = input("Do you want to do another workout? (Y=yes N=no)")
+
+while continue_workout.lower() == "y":
+    workout_selection()
+    weight()
+    continue_workout = input("Do you want to do another workout? (Y=yes N=no)")
